@@ -115,7 +115,7 @@ work:
     summary: |
       Responsibilities included:
       - Led groups of junior cadets in training drills and organizes parade nights with other senior cadets and officers. Created a welcoming environment for over 70 cadets by connecting with each cadet’s interests. 
-      - Prepared and taught weekly lessons about nautical skills, nautical history, and other militaryrelated topics by designing 	engaging activities to encourage active learning. 
+      - Prepared and taught weekly lessons about nautical skills, nautical history, and other military-related topics by designing 	engaging activities to encourage active learning. 
       - Organized monthly morale-building events such as sports nights or weekend training by collaborating with other senior cadets. 
 
 
