@@ -1,0 +1,222 @@
+# ─────────────────────────────────────────────────────────────────────
+# COURSES — your favourite/most interesting undergrad courses.
+# Add a new block to add a course. Remove a block to remove one.
+# "project" is optional — include a url and label if the course had one.
+# ─────────────────────────────────────────────────────────────────────
+
+- category: Economics
+
+  courses:
+    - code: ECON 408
+      title: Computational Methods in Macroeconomics
+      highlight: true
+      review: >
+        Definitely one of my favourite classes I've taken — a real culmination
+        of so many others. It integrated macroeconomic theory, statistics,
+        linear algebra, and computer science in an elegant and insightful way.
+        The professor, Jesse Perla, is amazing. If you can go to his office
+        hours, do it — he deeply cares about his students' learning. His course
+        materials are also on GitHub for past versions of the course.
+      topics:
+        - Asset pricing
+        - Linear state space models
+        - Models of consumption and saving
+        - Rational expectations
+        - Lucas trees
+      links:
+        - label: Prof. Jesse Perla
+          url: https://www.jesseperla.com/
+        - label: Course materials on GitHub
+          url: https://github.com/jlperla
+
+    - code: ECON 425
+      title: Advanced Econometrics
+      review: >
+        A challenging course, but an important one if you intend to go into
+        research or academia. The problem sets were difficult and grading
+        was sometimes ambiguous, but the content is unique and valuable.
+        Econometrics applies concepts from math and statistics to specific
+        empirical questions — there's overlap with STAT 305, but the
+        causal inference topics are unique to this course.
+      topics:
+        - Endogeneity and IV in models
+        - Linear panel models
+        - Limited dependent variables
+        - Program evaluations
+
+    - code: ECON 370
+      title: Cost-Benefit Analysis
+      review: >
+        I wish I had taken this earlier than my 3rd year. It covers a lot of
+        foundational concepts in economics and finance — discounting, net
+        present value, and time value of money. Professor Clive Chapple taught
+        it in a challenging but very well-structured way, making it easy to
+        follow. Particularly useful for anyone interested in the public sector.
+      topics:
+        - Discounting and net present value
+        - Time value of money
+        - Public sector decision-making
+        - Cost-benefit frameworks
+
+    - code: ECON 345
+      title: Money and Banking
+      review: >
+        I took this with Geoffrey Newman — a fun prof who structures class
+        the way you'd imagine a university lecture to be. He hands out notes
+        and lectures from them. The course was exam-heavy with few assignments.
+        Since he's been lecturing for so long, he teaches some of his own
+        models, including his three-sector model and risk-return portfolio
+        theory. Great for understanding the Canadian financial system.
+      topics:
+        - The Canadian banking system
+        - Financial system basics (bonds, business cycle)
+        - Portfolio theory
+        - Tobin model
+
+- category: Statistics
+
+  courses:
+    - code: STAT 306
+      title: Finding Relationships in Data
+      review: >
+        A good course overall — I took it over the summer so it may have been
+        a lighter workload than the winter term. Goes into more detail on linear
+        models and regression with actual mathematical derivations. The course
+        project was a bit limited (you pick from a few provided datasets), but
+        still a useful exercise in applying the methods.
+      topics:
+        - Linear and binary models (matrix interpretations)
+        - Model diagnostics (correlation, R-squared)
+        - Model selection (leverage, VIF, Mallow's Cp, Cook's distance, AIC)
+        - Interaction terms
+      project:
+        label: Sleep Efficiency Project
+        url: https://github.com/theqquach/sleep-efficiency-project
+
+    - code: STAT 305
+      title: Introduction to Statistical Inference
+      review: >
+        A core course for statistics majors and very concept-heavy — similar
+        in feel to a math class. With practice and an understanding of the
+        theory behind the methods, it's manageable. I took it during the
+        summer and would recommend doing so if you can.
+      topics:
+        - Estimators (moments, MLE, MGF)
+        - Hypothesis testing and confidence intervals
+        - Bayesian inference
+
+    - code: STAT 301
+      title: Statistical Modelling for Data Science
+      review: >
+        The final course in the data science stream of statistics courses.
+        Focuses on applying regression models to data science projects. The
+        group project had an assigned dataset and team, which was a bit
+        different from other courses — good practice for real collaborative
+        work.
+      topics:
+        - A/B testing
+        - Simple and multiple regression
+        - Explanatory vs. predictive modelling
+        - Inference for regression
+      project:
+        label: Income Prediction Project
+        url: https://github.com/theqquach/income-prediction-project
+
+    - code: STAT 300
+      title: Intermediate Statistics for Applications
+      review: >
+        A good course for non-statistics majors — it covers a broad range of
+        topics without going too deep into any of them. I thoroughly enjoyed
+        taking it with Prof. Ben Burr. If you want a solid survey of applied
+        statistics methods, this is it.
+      topics:
+        - Nonparametric tests
+        - Model fit
+        - Bootstrapping
+        - ANOVA
+        - Regression
+        - Time series
+
+    - code: STAT 201
+      title: Statistical Inference for Data Science
+      review: >
+        Part of the data science stream of statistics courses, built on the
+        structure of DSCI 100. A group project runs throughout the term. The
+        content focuses on statistical inference, bootstrapping, confidence
+        intervals, and hypothesis testing. My team did inference on credit
+        card default likelihood.
+      topics:
+        - Statistical inference
+        - Bootstrapping
+        - Confidence intervals
+        - Hypothesis testing
+      project:
+        label: Credit Card Default Project
+        url: https://github.com/theqquach/stat201-project
+
+- category: Computer Science
+
+  courses:
+    - code: CPSC 210
+      title: Software Construction
+      review: >
+        Great because of the open-ended personal project that runs the whole
+        term. You really get out of it what you put in — the TAs are there to
+        advise and help. The structure mirrors a real personal project, which
+        makes it a good gateway into independent software work. I found it
+        challenging at the time due to limited programming experience, but it
+        was a valuable learning experience.
+      topics:
+        - Object-oriented design
+        - Testing and debugging
+        - Refactoring and design patterns
+        - Version control with Git
+      project:
+        label: SmartMuse Music Library
+        url: https://github.com/theqquach/SmartMuseMusicLibraryProject
+
+    - code: CPSC 330
+      title: Applied Machine Learning
+      review: >
+        Covered a wide range of ML topics with relatively accessible concepts
+        and practical applications. The course doesn't have you build models
+        from scratch, but shows you how to implement and use them effectively —
+        a great applied survey of the field.
+      topics:
+        - Supervised models (k-NN, SVM, linear models, ensembles)
+        - Unsupervised models (k-means, recommenders, NLP, time series)
+        - Classification and regression metrics
+        - Feature importances and feature engineering
+
+- category: Other
+
+  courses:
+    - code: ENGL 110
+      title: Approaches to Literature and Culture
+      review: >
+        I went in fearing college-level literary analysis but was pleasantly
+        surprised — I thoroughly enjoyed it. Professor Miranda Burgess is
+        wonderful; I'd recommend taking any class she teaches. My TA, Thea
+        Skeide, was also very supportive throughout. The reading list was
+        genuinely great.
+      topics:
+        - Beloved
+        - The Marrow Thieves
+        - Frankenstein
+        - The Best We Could Do
+
+    - code: DSCI 100
+      title: Introduction to Data Science
+      review: >
+        A solid introductory course. I took it over the summer which let me
+        focus more on each topic. The format is great — solely worksheets and
+        tutorials run on Syzygy, UBC's online Jupyter server, so you can learn
+        at your own pace. There's a group project throughout the term.
+      topics:
+        - Reading, cleaning, and wrangling data
+        - Data visualization
+        - Classification, regression, and clustering
+        - Statistical inference
+      project:
+        label: Heart Disease Prediction Project
+        url: https://github.com/theqquach/dsci100-project
