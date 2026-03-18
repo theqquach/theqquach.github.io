@@ -34,6 +34,7 @@ header:
 
 # Site footer
 footer:
+  block: minimal
   copyright:
     notice: '© {year} Me. This work is licensed under {license}'
     license:
@@ -41,6 +42,8 @@ footer:
       allow_derivatives: false
       share_alike: true
       allow_commercial: false
+  show_translations: true
+  i_am_a_sponsor: true
 
 # Localization
 locale:

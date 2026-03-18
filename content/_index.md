@@ -48,4 +48,9 @@ sections:
       buttons:
         - text: Download CV
           url: /uploads/resume.pdf
+    design:
+      columns: '1'
+      spacing:
+          is_fullscreen: true
+          padding: ['50px', '0px', '50px', '0px']
 ---

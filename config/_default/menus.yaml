@@ -13,6 +13,9 @@ main:
   - name: Projects
     url: projects/
     weight: 30
+  - name: Courses
+    url: courses/
+    weight: 40
   - name: Uses
     url: uses/
-    weight: 40
+    weight: 50
