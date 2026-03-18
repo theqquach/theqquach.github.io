@@ -1,0 +1,277 @@
+---
+import Base from '../layouts/Base.astro';
+import { parse } from 'yaml';
+import { readFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import path from 'path';
+
+const contentDir = path.join(path.dirname(fileURLToPath(import.meta.url)), '../content');
+const load = (file: string) => parse(readFileSync(path.join(contentDir, file), 'utf8'));
+
+const about     = load('about.yaml') as any;
+const experience = load('experience.yaml') as any[];
+const projects  = load('projects.yaml') as any[];
+const education = load('education.yaml') as any[];
+const skills    = load('skills.yaml') as any[];
+const awards    = load('awards.yaml') as any[];
+
+const tagColors: Record<string, string> = {
+  'Computer Vision': '#3b1f6e',
+  'EDA':             '#6d28d9',
+  'Machine Learning':'#7c3aed',
+  'Statistics':      '#0891b2',
+  'Java':            '#b45309',
+  'Economics':       '#047857',
+};
+---
+
+<Base title={`${about.name} — Portfolio`}>
+
+<!-- ── HERO ── -->
+<section id="hero" style="min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:56px;">
+
+  <div style="display:flex;flex-direction:column;justify-content:center;padding:5rem 3.5rem 5rem 5rem;">
+    <p style="font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent2);margin-bottom:1.25rem;">
+      {about.heroLabel}
+    </p>
+    <h1 style="font-family:var(--serif);font-size:clamp(2.8rem,5vw,5rem);font-weight:400;line-height:1.08;color:var(--accent);margin-bottom:1.25rem;">
+      Alexander<br/><em style="font-style:italic;color:var(--accent2);">Thê</em><br/>Quach
+    </h1>
+    <p style="font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--ink3);margin-bottom:1.25rem;text-transform:uppercase;">
+      {about.role}
+    </p>
+    <p style="font-size:1rem;color:var(--ink2);max-width:44ch;margin-bottom:1.75rem;line-height:1.75;">
+      {about.heroSubtitle}
+    </p>
+    <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:2rem;">
+      {about.interests.map((i: string) => (
+        <span style="font-family:var(--mono);font-size:10px;letter-spacing:.06em;padding:.25rem .7rem;border-radius:2px;border:1px solid var(--paper3);color:var(--ink3);background:var(--paper2);">
+          {i}
+        </span>
+      ))}
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+      <a href="#experience" class="btn btn-primary">View experience ↓</a>
+      <a href={about.cvPath} class="btn btn-secondary">Download CV</a>
+    </div>
+  </div>
+
+  <div style="background:var(--accent);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:4rem 3rem;">
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:40px 40px;"></div>
+    <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.5rem;width:100%;max-width:320px;">
+      <div style="width:148px;height:148px;border-radius:50%;border:3px solid rgba(255,255,255,.2);overflow:hidden;flex-shrink:0;">
+        <img src="/avatar.png" alt={about.name} style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+      <div style="text-align:center;">
+        <h2 style="font-family:var(--serif);font-size:1.5rem;font-weight:400;color:#fff;margin-bottom:.2rem;">{about.name}</h2>
+        <p style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);">Vancouver, BC · UBC Class of 2026</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.65rem;width:100%;">
+        {about.heroStats.map((s: any) => (
+          <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:.85rem;text-align:center;">
+            <span style="font-family:var(--serif);font-size:1.7rem;display:block;color:#fff;line-height:1;margin-bottom:.25rem;">{s.number}</span>
+            <span style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);">{s.label}</span>
+          </div>
+        ))}
+      </div>
+      <div style="display:flex;gap:.75rem;">
+        <a href={`mailto:${about.email}`} style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:3px;color:rgba(255,255,255,.65);text-decoration:none;" title="Email">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        </a>
+        <a href={about.github} target="_blank" style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:3px;color:rgba(255,255,255,.65);text-decoration:none;" title="GitHub">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        </a>
+        <a href={about.linkedin} target="_blank" style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:3px;color:rgba(255,255,255,.65);text-decoration:none;" title="LinkedIn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section id="experience" style="padding:5rem;background:var(--paper2);">
+  <div class="sec-header reveal">
+    <span class="sec-num">01</span>
+    <h2 class="sec-title">Experience</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div style="display:flex;flex-direction:column;">
+    {experience.map((e: any) => (
+      <div class="reveal" style="display:grid;grid-template-columns:190px 1fr;gap:2rem;padding:2rem 0;border-top:1px solid var(--paper3);">
+        <div style="display:flex;flex-direction:column;gap:.3rem;">
+          <span style="font-family:var(--mono);font-size:11px;color:var(--ink3);letter-spacing:.06em;">{e.dates}</span>
+          {e.url
+            ? <a href={e.url} target="_blank" style="font-size:.85rem;color:var(--accent2);font-weight:500;text-decoration:none;">{e.org}</a>
+            : <span style="font-size:.85rem;color:var(--accent2);font-weight:500;">{e.org}</span>
+          }
+          <span style={`font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:.18rem .5rem;border-radius:2px;display:inline-block;width:fit-content;${e.type === 'work' ? 'background:var(--accent);color:rgba(255,255,255,.8);' : 'background:var(--paper3);color:var(--ink3);'}`}>
+            {e.type === 'work' ? 'Work' : e.type === 'vol' ? 'Volunteer' : 'Club'}
+          </span>
+        </div>
+        <div>
+          <h3 style="font-size:1rem;font-weight:500;color:var(--ink);margin-bottom:.5rem;" set:html={e.title}></h3>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:.3rem;">
+            {e.bullets.map((b: string) => (
+              <li style="font-size:.875rem;color:var(--ink2);padding-left:1rem;position:relative;line-height:1.6;">
+                <span style="position:absolute;left:0;color:var(--accent3);font-size:.8rem;">—</span>
+                {b}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    ))}
+    <div style="border-top:1px solid var(--paper3);"></div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section id="projects" style="padding:5rem;">
+  <div class="sec-header reveal">
+    <span class="sec-num">02</span>
+    <h2 class="sec-title">Projects</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;border:1.5px solid var(--paper3);">
+    {projects.map((p: any) => (
+      <div class="reveal" style="background:var(--paper);padding:1.65rem;border:1.5px solid var(--paper3);margin:-1px;display:flex;flex-direction:column;transition:background .18s;" onmouseenter="this.style.background='#fff'" onmouseleave="this.style.background='var(--paper)'">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;margin-bottom:.6rem;">
+          <h3 style="font-family:var(--serif);font-size:1.15rem;font-weight:400;color:var(--accent);line-height:1.25;">{p.title}</h3>
+          <span style={`font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .55rem;border-radius:2px;color:#fff;flex-shrink:0;background:${tagColors[p.tag] ?? 'var(--accent)'};`}>{p.tag}</span>
+        </div>
+        <p style="font-size:.875rem;color:var(--ink2);line-height:1.65;flex:1;margin-bottom:1rem;">{p.description}</p>
+        <div style="display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.85rem;">
+          {p.stack.map((s: string) => (
+            <span style="font-family:var(--mono);font-size:10px;padding:.18rem .5rem;border:1px solid var(--paper3);border-radius:2px;color:var(--ink3);">{s}</span>
+          ))}
+        </div>
+        <a href={p.url} target="_blank" style="font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--accent2);border-bottom:1px solid transparent;transition:border-color .18s;margin-top:auto;display:inline-block;" onmouseenter="this.style.borderColor='var(--accent2)'" onmouseleave="this.style.borderColor='transparent'">GitHub →</a>
+      </div>
+    ))}
+  </div>
+</section>
+
+<!-- ── EDUCATION ── -->
+<section id="education" style="padding:5rem;background:var(--paper2);">
+  <div class="sec-header reveal">
+    <span class="sec-num">03</span>
+    <h2 class="sec-title">Education</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div style="display:flex;flex-direction:column;">
+    {education.map((e: any) => (
+      <div class="reveal" style="display:grid;grid-template-columns:190px 1fr;gap:2rem;padding:2rem 0;border-top:1px solid var(--paper3);">
+        <div>
+          <div style="font-family:var(--mono);font-size:11px;color:var(--ink3);letter-spacing:.06em;">{e.dates}</div>
+          <div style="font-size:.85rem;color:var(--accent2);font-weight:500;margin-top:.2rem;">{e.institution}</div>
+        </div>
+        <div>
+          <h3 style="font-size:1rem;font-weight:500;color:var(--ink);margin-bottom:.4rem;">{e.degree}</h3>
+          <p style="font-size:.875rem;color:var(--ink2);line-height:1.65;">{e.description}</p>
+        </div>
+      </div>
+    ))}
+    <div style="border-top:1px solid var(--paper3);"></div>
+  </div>
+</section>
+
+<!-- ── SKILLS ── -->
+<section id="skills" style="padding:5rem;">
+  <div class="sec-header reveal">
+    <span class="sec-num">04</span>
+    <h2 class="sec-title">Skills</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
+    {skills.map((g: any) => (
+      <div class="reveal" style="background:var(--paper);border:1.5px solid var(--paper3);border-radius:4px;padding:1.4rem;">
+        <h4 style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.9rem;padding-bottom:.55rem;border-bottom:1px solid var(--paper3);">{g.group}</h4>
+        <div style="display:flex;flex-wrap:wrap;gap:.4rem;">
+          {g.items.map((item: any) => (
+            <span style={`font-size:.82rem;padding:.32rem .75rem;border:1px solid var(--paper3);border-radius:2px;transition:all .18s;${item.hot ? 'background:var(--accent2);color:#fff;border-color:var(--accent2);' : 'color:var(--ink2);background:var(--paper2);'}`}>
+              {item.name}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<!-- ── AWARDS ── -->
+<section id="awards" style="padding:5rem;background:var(--paper2);">
+  <div class="sec-header reveal">
+    <span class="sec-num">05</span>
+    <h2 class="sec-title">Awards &amp; Certifications</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div style="display:flex;flex-direction:column;">
+    {awards.map((a: any) => (
+      <div class="reveal" style="display:grid;grid-template-columns:190px 1fr;gap:2rem;padding:1.5rem 0;border-top:1px solid var(--paper3);">
+        <div>
+          <div style="font-family:var(--mono);font-size:11px;color:var(--ink3);letter-spacing:.06em;">{a.date}</div>
+          <div style="font-size:.8rem;color:var(--ink3);margin-top:.2rem;line-height:1.4;">{a.awarder}</div>
+        </div>
+        <div>
+          <h3 style="font-size:.95rem;font-weight:500;color:var(--ink);margin-bottom:.3rem;">{a.title}</h3>
+          <p style="font-size:.875rem;color:var(--ink2);line-height:1.6;">{a.description}</p>
+        </div>
+      </div>
+    ))}
+    <div style="border-top:1px solid var(--paper3);"></div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about" style="padding:5rem;">
+  <div class="sec-header reveal">
+    <span class="sec-num">06</span>
+    <h2 class="sec-title">About</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div style="display:grid;grid-template-columns:2fr 1fr;gap:4rem;align-items:start;">
+    <div class="reveal" style="font-size:.95rem;color:var(--ink2);line-height:1.8;">
+      {about.bio.map((p: string) => <p style="margin-bottom:1rem;">{p}</p>)}
+      <div style="display:flex;gap:.65rem;flex-wrap:wrap;margin-top:1.5rem;">
+        {about.languages.map((l: any) => (
+          <span style="font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:.28rem .75rem;border-radius:2px;border:1px solid var(--paper3);color:var(--ink2);">
+            {l.name} — {l.level}
+          </span>
+        ))}
+      </div>
+    </div>
+    <div>
+      <div class="reveal" style="background:var(--accent);border-radius:4px;padding:1.65rem;color:#fff;margin-bottom:1.25rem;">
+        <h3 style="font-family:var(--serif);font-size:1.35rem;font-weight:400;color:#fff;margin-bottom:1.15rem;">Get in touch</h3>
+        <div style="display:flex;flex-direction:column;gap:.65rem;">
+          <a href={`mailto:${about.email}`} style="display:flex;align-items:center;gap:.7rem;text-decoration:none;color:rgba(255,255,255,.65);font-size:.875rem;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+            {about.email}
+          </a>
+          <a href={about.github} target="_blank" style="display:flex;align-items:center;gap:.7rem;text-decoration:none;color:rgba(255,255,255,.65);font-size:.875rem;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            github.com/theqquach
+          </a>
+          <a href={about.linkedin} target="_blank" style="display:flex;align-items:center;gap:.7rem;text-decoration:none;color:rgba(255,255,255,.65);font-size:.875rem;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            linkedin.com/in/thequach
+          </a>
+        </div>
+      </div>
+      <div class="reveal" style="border:1.5px solid var(--paper3);padding:1.4rem;border-radius:4px;text-align:center;">
+        <p style="font-size:.82rem;color:var(--ink3);margin-bottom:1rem;">Full CV with coursework, references, and detailed experience.</p>
+        <a href={about.cvPath} class="btn btn-secondary" style="width:100%;justify-content:center;">Download CV ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</Base>
+
+<style>
+  @media (max-width: 960px) {
+    #hero { grid-template-columns: 1fr !important; }
+    section { padding: 4rem 2rem !important; }
+  }
+</style>

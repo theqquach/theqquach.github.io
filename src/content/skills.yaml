@@ -1,0 +1,46 @@
+# ─────────────────────────────────────────────────────────────
+# SKILLS — add "hot: true" to highlight a skill in purple
+# ─────────────────────────────────────────────────────────────
+
+- group: Programming Languages
+  items:
+    - name: Python
+      hot: true
+    - name: R
+      hot: true
+    - name: SQL
+    - name: Julia
+    - name: Java
+
+- group: Statistical Methods
+  items:
+    - name: Econometrics
+      hot: true
+    - name: Statistical Inference
+      hot: true
+    - name: Bayesian Methods
+    - name: Time Series
+    - name: Regression & GLMs
+    - name: A/B Testing
+
+- group: ML & Data Libraries
+  items:
+    - name: scikit-learn
+      hot: true
+    - name: PyTorch
+    - name: pandas · numpy
+    - name: tidyverse
+    - name: ggplot2
+    - name: Computer Vision
+    - name: NLP
+
+- group: Tools & Domain
+  items:
+    - name: Financial Analysis
+      hot: true
+    - name: Excel
+    - name: RStudio
+    - name: VS Code
+    - name: Git · GitHub
+    - name: LaTeX
+    - name: Data Visualization

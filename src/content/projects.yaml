@@ -1,0 +1,67 @@
+# ─────────────────────────────────────────────────────────────────────
+# PROJECTS — add a new block to add a project.
+# tag options: "Computer Vision" | "EDA" | "Machine Learning" |
+#              "Statistics" | "Java" | "Economics"
+# ─────────────────────────────────────────────────────────────────────
+
+- title: Eye Disease Classification
+  tag: Computer Vision
+  description: >
+    Binary classification model trained in PyTorch to correctly identify
+    images of diseased eyes. Explored CNN architectures and transfer
+    learning on a medical imaging dataset.
+  stack: [Python, PyTorch, CNN]
+  url: https://github.com/theqquach/eye-disease-classification
+
+- title: Food Emissions Analysis
+  tag: EDA
+  description: >
+    Exploratory data analysis examining the relationship between greenhouse
+    gas emissions, food production, and global consumption patterns.
+  stack: [Python, pandas, matplotlib]
+  url: https://github.com/theqquach
+
+- title: Income Prediction
+  tag: Machine Learning
+  description: >
+    Investigated how age, education, and work hours are associated with income.
+    Trained a logistic regression model to predict income brackets — a STAT 301
+    group project.
+  stack: [R, Logistic Regression, tidyverse]
+  url: https://github.com/theqquach/income-prediction-project
+
+- title: Sleep Efficiency Project
+  tag: Statistics
+  description: >
+    Identified factors affecting sleep quality using linear modelling. Applied
+    model diagnostics, variable selection, and interaction terms on a
+    real-world dataset for STAT 306.
+  stack: [R, Linear Models, ggplot2]
+  url: https://github.com/theqquach/sleep-efficiency-project
+
+- title: Credit Card Default Inference
+  tag: Statistics
+  description: >
+    Used statistical inference to test whether default payments are more
+    prevalent among those with lower education levels. Hypothesis testing
+    and bootstrapped confidence intervals for STAT 201.
+  stack: [R, Inference, Bootstrap]
+  url: https://github.com/theqquach/stat201-project
+
+- title: Heart Disease Prediction
+  tag: Machine Learning
+  description: >
+    Classification model to predict resting ECG results and angiographic
+    disease status. Built and evaluated multiple classifiers on a clinical
+    cardiology dataset for DSCI 100.
+  stack: [R, KNN, Classification]
+  url: https://github.com/theqquach/dsci100-project/
+
+- title: SmartMuse Music Library
+  tag: Java
+  description: >
+    A music library application built in Java for CPSC 210. Full GUI,
+    persistent data storage, and clean object-oriented architecture.
+    A personal project with open-ended scope.
+  stack: [Java, OOP, Swing]
+  url: https://github.com/theqquach/SmartMuseMusicLibraryProject

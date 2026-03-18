@@ -1,0 +1,55 @@
+# ─────────────────────────────────────────────────────────
+# EXPERIENCE — add a new block to add a role,
+# remove a block to remove one. Order = display order.
+# type: "work" → purple badge  |  type: "vol" → grey badge
+# ─────────────────────────────────────────────────────────
+
+- title: Investor Relations Assistant
+  org: Solaires Entreprises Inc.
+  url: https://www.solaires.net/
+  dates: Sep 2024 — Present
+  type: work
+  bullets:
+    - Supported fundraising by researching and generating documentation prior to investor meetings
+    - Identified, applied, and coordinated participation in pitch events
+    - Built connections within the climate venture capital and sustainable energy community
+    - Created pitch deck presentations and managed company documents for the Data Room
+
+- title: "Finance Team — Outreach, Sponsorships & Grants"
+  org: UBC Rapid Engineering Design Team
+  url: https://ubc-rapid.com/#/
+  dates: Sep 2024 — Present
+  type: vol
+  bullets:
+    - Presented finance updates at weekly team meetings
+    - Researched and wrote grant applications; connected with potential sponsors
+    - Collaborated with co-captains to refine UBC Rapid's sponsorship package
+
+- title: Business Operations Analyst
+  org: Invartis Ltd.
+  url: https://invartis.com/
+  dates: Jun — Aug 2024
+  type: work
+  bullets:
+    - Supported senior consultants across consulting, business development, and HR teams
+    - Built a skill-expertise matrix to identify team strengths and guide future recruitment
+    - Evaluated three RFP software platforms and recommended the best fit for Invartis
+    - Designed a data model in preparation for an asset market analysis
+    - Researched asset managers and owners to improve the quality of client pitches
+
+- title: Math Tutor
+  org: CUBS Vancouver
+  dates: Sep — Dec 2023
+  type: vol
+  bullets:
+    - Prepared and taught weekly math lessons to youth in Vancouver's DTES neighbourhood
+    - Catered lessons to each student's specific needs and interests
+
+- title: Senior Cadet
+  org: Royal Canadian Sea Cadet Corps 27
+  dates: Sep 2016 — Jul 2021
+  type: vol
+  bullets:
+    - Led groups of junior cadets in training drills; organized parade nights with 70+ cadets
+    - Prepared and taught weekly lessons on nautical skills, history, and military topics
+    - Organized monthly morale-building events in collaboration with other senior cadets

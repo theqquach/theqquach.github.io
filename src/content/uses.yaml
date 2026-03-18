@@ -1,0 +1,149 @@
+# ─────────────────────────────────────────────────────────────────────
+# USES PAGE — edit your setup here, it renders automatically
+# badge options: "favourite" | "free" | "open source"  (or leave blank)
+# ─────────────────────────────────────────────────────────────────────
+
+- section: Hardware
+  icon: "💻"
+  specCards:
+    - label: Primary laptop
+      name: MacBook Air 13-inch (M2, 2022)
+      specs:
+        Chip: Apple M2
+        RAM: 8 GB unified
+        Screen: 13-inch Liquid Retina
+        Form: Fanless, 1.24 kg
+    - label: Desktop PC
+      name: Custom Windows Build
+      specs:
+        CPU: AMD Ryzen 5 3600X
+        GPU: ASUS GTX 1050 Ti 4GB
+        Mobo: ASRock B450M-HDV R4.0
+        Socket: AM4
+  items:
+    - title: iPad Pro 11-inch (3rd Gen) + Apple Pencil 2
+      sub: Tablet
+      description: >
+        Used for handwritten notes, annotating papers and slides, and
+        sketching diagrams. Great companion to the MacBook for lectures.
+    - title: EPOMAKER RT100
+      sub: Keyboard
+      badge: favourite
+      description: >
+        Wisteria linear switches — smooth, quiet, and satisfying. Great
+        typing experience for long writing or coding sessions.
+    - title: Sony WH-1000XM5
+      sub: Headphones
+      badge: favourite
+      description: >
+        Best noise-cancelling headphones I've owned. Essential for focusing
+        in busy libraries. Class-leading ANC and excellent sound quality.
+    - title: AirPods (3rd Gen)
+      sub: Earbuds
+      description: >
+        Daily carry for calls and walking around campus. Spatial audio is
+        a nice touch for watching things on the go.
+    - title: Apple Watch Series 5
+      sub: Wearable
+      description: >
+        Primarily for fitness tracking, notifications, and Apple Pay.
+    - title: HARPOON RGB Pro + Anker 2.4G Wireless Vertical
+      sub: Mice
+      description: >
+        HARPOON wired for desktop; Anker vertical mouse for ergonomic
+        laptop work — reduces wrist strain during long sessions.
+    - title: MAONO 192kHz USB Microphone
+      sub: Audio input
+      description: >
+        Condenser USB mic for presentations, recordings, and video calls.
+        192kHz/24-bit — great for anything recorded.
+    - title: EMEET 1080P Webcam
+      sub: Camera
+      description: >
+        A step up from the built-in camera for online interviews and
+        video presentations.
+
+- section: Editor & Development
+  icon: "⌨️"
+  items:
+    - title: VS Code
+      sub: Code editor
+      badge: favourite
+      description: >
+        Main editor for Python, web work, and anything that isn't R.
+        The Jupyter extension makes it a solid notebook environment too.
+    - title: RStudio
+      sub: R IDE
+      badge: favourite
+      description: >
+        Still the best environment for heavy R work. The plot pane,
+        environment viewer, and R Markdown integration are hard to replace.
+    - title: IntelliJ IDEA
+      sub: Java IDE
+      description: >
+        Used for Java development in CPSC 210. The refactoring tools
+        and debugger are excellent.
+
+- section: Languages & Data Stack
+  icon: "📊"
+  items:
+    - title: Python
+      sub: Language
+      badge: favourite
+      description: >
+        Primary language for ML, data wrangling, NLP, and automation.
+        pandas, numpy, scikit-learn, and PyTorch see the most use.
+    - title: R
+      sub: Language
+      badge: favourite
+      description: >
+        Go-to for econometrics, statistical inference, and
+        publication-quality visualisations via ggplot2.
+    - title: Julia
+      sub: Language
+      description: >
+        Used in ECON 408 (Computational Macroeconomics) with Prof. Jesse
+        Perla. Great for numerical methods — fast like C, readable like Python.
+    - title: Java
+      sub: Language
+      description: >
+        Used in CPSC 210 for the SmartMuse project. Solid OOP fundamentals.
+
+- section: Browser & Productivity
+  icon: "🌐"
+  items:
+    - title: Arc
+      sub: Primary browser
+      badge: favourite
+      description: >
+        Switched from Chrome and haven't looked back. Spaces keep research,
+        school, and personal browsing separated cleanly.
+    - title: Google Chrome
+      sub: Secondary browser
+      description: Backup browser for anything that needs a specific Chromium profile.
+    - title: Safari
+      sub: Mobile browser
+      description: >
+        Default on iPhone and iPad for battery efficiency. Handoff between
+        Mac and mobile is genuinely seamless.
+    - title: Notion + Notion Calendar
+      sub: Notes & projects
+      description: >
+        Course notes, project planning, and long-form writing.
+        Notion Calendar syncs everything into one place for scheduling.
+    - title: Things 3
+      sub: Task manager
+      badge: favourite
+      description: >
+        Best task manager I've used. Clean, fast, and gets out of the way.
+        Quick Entry with a keyboard shortcut makes it frictionless.
+    - title: Slack
+      sub: Communication
+      description: >
+        Used for team communication at UBC Rapid and other clubs. Also
+        the default channel for most UBC course communities.
+    - title: Apple Music
+      sub: Music
+      description: >
+        Works seamlessly across Mac, iPhone, and AirPods. The lossless
+        audio is a nice bonus with the Sony XM5s.

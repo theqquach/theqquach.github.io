@@ -1,0 +1,68 @@
+---
+# ─────────────────────────────────────────
+# ABOUT YOU — edit this file to update the
+# hero, bio, contact, and languages sections
+# ─────────────────────────────────────────
+
+name: "Alexander (Thê) Quach"
+shortName: "Alex"
+role: "Financial Data Analyst · UBC · Sauder"
+email: "theqquach@gmail.com"
+github: "https://github.com/theqquach"
+linkedin: "https://www.linkedin.com/in/thequach/"
+cvPath: "/uploads/resume.pdf"
+
+heroLabel: "Statistics · Economics · Data Science"
+
+heroSubtitle: >
+  BSc Combined Major in Statistics & Economics with a concurrent Master's
+  of Management at Sauder. I use a data-driven approach to explore
+  relationships, answer questions, and provide meaningful recommendations.
+
+interests:
+  - Financial Economics
+  - Econometrics
+  - Data Science
+  - Political Economy
+  - Environmental Economics
+  - Quantitative Methods
+
+heroStats:
+  - number: "2"
+    label: "Degrees"
+  - number: "4+"
+    label: "Work roles"
+  - number: "7"
+    label: "Projects"
+  - number: "CFA"
+    label: "L1 Candidate"
+
+bio:
+  - >
+    Hi — I'm Alex. I'm a student at the University of British Columbia
+    completing a Combined Major in Statistics & Economics alongside a
+    concurrent Master's of Management at Sauder School of Business,
+    graduating in 2026.
+  - >
+    I'm passionate about using a data-driven approach to explore
+    relationships, answer questions, and provide meaningful recommendations.
+    I'm most experienced working with financial data, but I'm always excited
+    to learn about new domains — I believe in lifelong learning.
+  - >
+    My interests span financial economics, political economy, environmental
+    economics, and quantitative methods. I enjoy problems at the intersection
+    of rigorous statistical thinking and real-world impact.
+  - >
+    Outside academics I've been involved in sea cadets, community math
+    tutoring, and university engineering and finance clubs. Feel free to reach
+    out about projects, opportunities, or anything at the intersection of
+    data and economics.
+
+languages:
+  - name: English
+    level: Native
+  - name: French
+    level: Intermediate
+  - name: Chinese
+    level: Basic
+---

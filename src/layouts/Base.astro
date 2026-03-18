@@ -1,0 +1,71 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Alexander (Thê) Quach — Statistics, Economics & Data Science at UBC" } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">theqquach.github.io</a>
+  <ul class="nav-links">
+    <li><a href="/#experience">Experience</a></li>
+    <li><a href="/#projects">Projects</a></li>
+    <li><a href="/#skills">Skills</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/uses" class:list={["uses-link", { active: currentPath === '/uses' }]}>/uses</a></li>
+  </ul>
+</nav>
+
+<slot />
+
+<footer>
+  <span>© 2025 Alexander (Thê) Quach</span>
+  <span>BSc Statistics &amp; Economics · UBC</span>
+  <a href="https://github.com/theqquach/theqquach.github.io" target="_blank">Source on GitHub →</a>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        (e.target as HTMLElement).style.transitionDelay = `${(i % 4) * 0.07}s`;
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => obs.observe(el));
+
+  // Active nav link on scroll (home page only)
+  if (window.location.pathname === '/') {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-links a:not(.uses-link)');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= (s as HTMLElement).offsetTop - 100) current = s.id; });
+      navLinks.forEach(a => { a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--accent2)' : ''; });
+    });
+  }
+</script>
+
+</body>
+</html>
