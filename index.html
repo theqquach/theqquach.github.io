@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alexander (Thê) Quach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #0e0e0e; --ink2: #3a3a3a; --ink3: #757575;
+      --paper: #f7f5fb; --paper2: #eeebf5; --paper3: #e0daea;
+      --accent: #3b1f6e; --accent2: #7c3aed; --accent3: #a855f7;
+      --mono: 'DM Mono', monospace;
+      --serif: 'DM Serif Display', serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.65; overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 56px; background: var(--paper); border-bottom: 1px solid var(--paper3); }
+    .nav-logo { font-family: var(--mono); font-size: 13px; letter-spacing: .04em; color: var(--ink2); text-decoration: none; }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; align-items: center; }
+    .nav-links a { font-size: 13px; font-weight: 400; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; color: var(--ink2); transition: color .2s; }
+    .nav-links a:hover { color: var(--accent2); }
+    .nav-links a.uses-link { color: var(--accent2); border: 1px solid var(--accent2); padding: .2rem .65rem; border-radius: 2px; transition: all .2s; }
+    .nav-links a.uses-link:hover { background: var(--accent2); color: #fff; }
+
+    /* HERO */
+    #hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 56px; }
+    .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 5rem 3.5rem 5rem 5rem; }
+    .hero-label { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent2); margin-bottom: 1.25rem; }
+    h1 { font-family: var(--serif); font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 400; line-height: 1.08; color: var(--accent); margin-bottom: 1.25rem; }
+    h1 em { font-style: italic; color: var(--accent2); }
+    .hero-role { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; color: var(--ink3); margin-bottom: 1.25rem; text-transform: uppercase; }
+    .hero-sub { font-size: 1rem; color: var(--ink2); max-width: 44ch; margin-bottom: 1.75rem; line-height: 1.75; }
+    .hero-interests { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 2rem; }
+    .interest-pill { font-family: var(--mono); font-size: 10px; letter-spacing: .06em; padding: .25rem .7rem; border-radius: 2px; border: 1px solid var(--paper3); color: var(--ink3); background: var(--paper2); }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: .4rem; padding: .65rem 1.4rem; font-family: var(--sans); font-size: .82rem; font-weight: 500; letter-spacing: .04em; text-transform: uppercase; text-decoration: none; border: 1.5px solid; border-radius: 2px; cursor: pointer; transition: all .2s; }
+    .btn-primary { background: var(--accent2); color: #fff; border-color: var(--accent2); }
+    .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+    .btn-secondary { background: transparent; color: var(--ink); border-color: var(--paper3); }
+    .btn-secondary:hover { border-color: var(--ink2); }
+
+    .hero-right { background: var(--accent); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 4rem 3rem; }
+    .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size: 40px 40px; }
+    .hero-card { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; width: 100%; max-width: 320px; }
+    .avatar-wrap { width: 148px; height: 148px; border-radius: 50%; border: 3px solid rgba(255,255,255,.2); overflow: hidden; flex-shrink: 0; }
+    .avatar-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-name-block { text-align: center; }
+    .hero-name-block h2 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: #fff; margin-bottom: .2rem; }
+    .hero-name-block p { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.45); }
+    .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; width: 100%; }
+    .hstat { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); border-radius: 3px; padding: .85rem; text-align: center; }
+    .hstat .n { font-family: var(--serif); font-size: 1.7rem; display: block; color: #fff; line-height: 1; margin-bottom: .25rem; }
+    .hstat .l { font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.4); }
+    .hero-social { display: flex; gap: .75rem; }
+    .hero-social a { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); border-radius: 3px; color: rgba(255,255,255,.65); text-decoration: none; transition: all .2s; }
+    .hero-social a:hover { background: rgba(255,255,255,.18); color: #fff; }
+    .hero-social svg { width: 15px; height: 15px; }
+
+    /* SECTIONS */
+    section { padding: 5rem; }
+    section:nth-of-type(even) { background: var(--paper2); }
+    .sec-header { display: flex; align-items: baseline; gap: 1.25rem; margin-bottom: 3rem; }
+    .sec-num { font-family: var(--mono); font-size: 11px; color: var(--ink3); letter-spacing: .1em; }
+    h2.sec-title { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 400; color: var(--accent); line-height: 1.1; }
+    .sec-rule { flex: 1; height: 1px; background: var(--paper3); }
+
+    /* EXPERIENCE */
+    .exp-list { display: flex; flex-direction: column; }
+    .exp-item { display: grid; grid-template-columns: 190px 1fr; gap: 2rem; padding: 2rem 0; border-top: 1px solid var(--paper3); }
+    .exp-item:last-child { border-bottom: 1px solid var(--paper3); }
+    .exp-meta { display: flex; flex-direction: column; gap: .3rem; }
+    .exp-dates { font-family: var(--mono); font-size: 11px; color: var(--ink3); letter-spacing: .06em; }
+    .exp-org { font-size: .85rem; color: var(--accent2); font-weight: 500; text-decoration: none; }
+    .exp-org:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .exp-type { font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; padding: .18rem .5rem; border-radius: 2px; display: inline-block; margin-top: .2rem; width: fit-content; }
+    .type-work { background: var(--accent); color: rgba(255,255,255,.8); }
+    .type-vol  { background: var(--paper3); color: var(--ink3); }
+    .exp-body h3 { font-size: 1rem; font-weight: 500; color: var(--ink); margin-bottom: .5rem; }
+    .exp-body ul { list-style: none; display: flex; flex-direction: column; gap: .3rem; }
+    .exp-body li { font-size: .875rem; color: var(--ink2); padding-left: 1rem; position: relative; line-height: 1.6; }
+    .exp-body li::before { content: '—'; position: absolute; left: 0; color: var(--accent3); font-size: .8rem; }
+
+    /* PROJECTS */
+    .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1px; border: 1.5px solid var(--paper3); }
+    .proj-card { background: var(--paper); padding: 1.65rem; border: 1.5px solid var(--paper3); margin: -1px; display: flex; flex-direction: column; transition: background .18s; }
+    .proj-card:hover { background: #fff; }
+    .proj-top { display: flex; align-items: flex-start; justify-content: space-between; gap: .75rem; margin-bottom: .6rem; }
+    .proj-tag { font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; padding: .2rem .55rem; border-radius: 2px; color: #fff; flex-shrink: 0; }
+    .tag-cv  { background: var(--accent); }
+    .tag-eda { background: #6d28d9; }
+    .tag-ml  { background: var(--accent2); }
+    .tag-stat{ background: #0891b2; }
+    .tag-java{ background: #b45309; }
+    .proj-card h3 { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; color: var(--accent); line-height: 1.25; margin-bottom: .5rem; }
+    .proj-card p { font-size: .875rem; color: var(--ink2); line-height: 1.65; flex: 1; margin-bottom: 1rem; }
+    .proj-stack { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .85rem; }
+    .stack-pill { font-family: var(--mono); font-size: 10px; padding: .18rem .5rem; border: 1px solid var(--paper3); border-radius: 2px; color: var(--ink3); }
+    .proj-link { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; color: var(--accent2); border-bottom: 1px solid transparent; transition: border-color .18s; margin-top: auto; display: inline-block; }
+    .proj-link:hover { border-color: var(--accent2); }
+
+    /* EDUCATION */
+    .edu-list { display: flex; flex-direction: column; }
+    .edu-item { display: grid; grid-template-columns: 190px 1fr; gap: 2rem; padding: 2rem 0; border-top: 1px solid var(--paper3); }
+    .edu-item:last-child { border-bottom: 1px solid var(--paper3); }
+    .edu-dates { font-family: var(--mono); font-size: 11px; color: var(--ink3); letter-spacing: .06em; }
+    .edu-inst { font-size: .85rem; color: var(--accent2); font-weight: 500; margin-top: .2rem; }
+    .edu-body h3 { font-size: 1rem; font-weight: 500; color: var(--ink); margin-bottom: .4rem; }
+    .edu-body p { font-size: .875rem; color: var(--ink2); line-height: 1.65; }
+
+    /* SKILLS */
+    .skills-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .skill-group { background: var(--paper); border: 1.5px solid var(--paper3); border-radius: 4px; padding: 1.4rem; }
+    .skill-group h4 { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink3); margin-bottom: .9rem; padding-bottom: .55rem; border-bottom: 1px solid var(--paper3); }
+    .skill-items { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .skill-pill { font-size: .82rem; padding: .32rem .75rem; border: 1px solid var(--paper3); border-radius: 2px; color: var(--ink2); background: var(--paper2); transition: all .18s; cursor: default; }
+    .skill-pill:hover { border-color: var(--accent2); color: var(--accent2); background: #fff; }
+    .skill-pill.hot { background: var(--accent2); color: #fff; border-color: var(--accent2); }
+
+    /* AWARDS */
+    .awards-list { display: flex; flex-direction: column; }
+    .award-item { display: grid; grid-template-columns: 190px 1fr; gap: 2rem; padding: 1.5rem 0; border-top: 1px solid var(--paper3); }
+    .award-item:last-child { border-bottom: 1px solid var(--paper3); }
+    .award-date { font-family: var(--mono); font-size: 11px; color: var(--ink3); letter-spacing: .06em; }
+    .award-awarder { font-size: .8rem; color: var(--ink3); margin-top: .2rem; line-height: 1.4; }
+    .award-body h3 { font-size: .95rem; font-weight: 500; color: var(--ink); margin-bottom: .3rem; }
+    .award-body p { font-size: .875rem; color: var(--ink2); line-height: 1.6; }
+
+    /* ABOUT */
+    .about-wrap { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start; }
+    .about-body { font-size: .95rem; color: var(--ink2); line-height: 1.8; }
+    .about-body p + p { margin-top: 1rem; }
+    .about-body strong { color: var(--ink); font-weight: 500; }
+    .lang-row { display: flex; gap: .65rem; flex-wrap: wrap; margin-top: 1.5rem; }
+    .lang-pill { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; padding: .28rem .75rem; border-radius: 2px; border: 1px solid var(--paper3); color: var(--ink2); }
+    .contact-card { background: var(--accent); border-radius: 4px; padding: 1.65rem; color: #fff; margin-bottom: 1.25rem; }
+    .contact-card h3 { font-family: var(--serif); font-size: 1.35rem; font-weight: 400; color: #fff; margin-bottom: 1.15rem; }
+    .contact-links { display: flex; flex-direction: column; gap: .65rem; }
+    .c-link { display: flex; align-items: center; gap: .7rem; text-decoration: none; color: rgba(255,255,255,.65); font-size: .875rem; transition: color .18s; }
+    .c-link:hover { color: #fff; }
+    .c-link svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .cv-card { border: 1.5px solid var(--paper3); padding: 1.4rem; border-radius: 4px; text-align: center; }
+    .cv-card p { font-size: .82rem; color: var(--ink3); margin-bottom: 1rem; }
+
+    /* FOOTER */
+    footer { background: var(--accent); color: rgba(255,255,255,.4); padding: 1.65rem 5rem; display: flex; align-items: center; justify-content: space-between; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; }
+    footer a { color: rgba(255,255,255,.6); text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 4rem 2rem; }
+      .hero-right { min-height: 55vh; }
+      section { padding: 4rem 2rem; }
+      .exp-item, .edu-item, .award-item { grid-template-columns: 1fr; gap: .6rem; }
+      .about-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+      .skills-wrap { grid-template-columns: 1fr; }
+      footer { padding: 1.5rem 2rem; flex-direction: column; gap: .65rem; text-align: center; }
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">theqquach.github.io</a>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="/uses" class="uses-link">/uses</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-label">Statistics · Economics · Data Science</p>
+    <h1>Alexander<br><em>Thê</em><br>Quach</h1>
+    <p class="hero-role">Financial Data Analyst · UBC · Sauder</p>
+    <p class="hero-sub">
+      BSc Combined Major in Statistics &amp; Economics with a concurrent Master's of Management at Sauder. I use a data-driven approach to explore relationships, answer questions, and provide meaningful recommendations.
+    </p>
+    <div class="hero-interests">
+      <span class="interest-pill">Financial Economics</span>
+      <span class="interest-pill">Econometrics</span>
+      <span class="interest-pill">Data Science</span>
+      <span class="interest-pill">Political Economy</span>
+      <span class="interest-pill">Environmental Economics</span>
+      <span class="interest-pill">Quantitative Methods</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#experience" class="btn btn-primary">View experience ↓</a>
+      <a href="/uploads/resume.pdf" class="btn btn-secondary">Download CV</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-card">
+      <div class="avatar-wrap">
+        <img src="/avatar.png" alt="Alexander Quach" />
+      </div>
+      <div class="hero-name-block">
+        <h2>Alexander (Thê) Quach</h2>
+        <p>Vancouver, BC · UBC Class of 2026</p>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><span class="n">2</span><span class="l">Degrees</span></div>
+        <div class="hstat"><span class="n">4+</span><span class="l">Work roles</span></div>
+        <div class="hstat"><span class="n">7</span><span class="l">Projects</span></div>
+        <div class="hstat"><span class="n">CFA</span><span class="l">L1 Candidate</span></div>
+      </div>
+      <div class="hero-social">
+        <a href="mailto:theqquach@gmail.com" title="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        </a>
+        <a href="https://github.com/theqquach" target="_blank" title="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/thequach/" target="_blank" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="sec-header reveal">
+    <span class="sec-num">01</span>
+    <h2 class="sec-title">Experience</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="exp-list">
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <span class="exp-dates">Sep 2024 — Present</span>
+        <a href="https://www.solaires.net/" class="exp-org" target="_blank">Solaires Entreprises Inc.</a>
+        <span class="exp-type type-work">Work</span>
+      </div>
+      <div class="exp-body">
+        <h3>Investor Relations Assistant</h3>
+        <ul>
+          <li>Supported fundraising by researching and generating documentation prior to investor meetings</li>
+          <li>Identified, applied, and coordinated participation in pitch events</li>
+          <li>Built connections within the climate venture capital and sustainable energy community</li>
+          <li>Created pitch deck presentations and managed company documents for the Data Room</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <span class="exp-dates">Sep 2024 — Present</span>
+        <a href="https://ubc-rapid.com/#/" class="exp-org" target="_blank">UBC Rapid Engineering</a>
+        <span class="exp-type type-vol">Club</span>
+      </div>
+      <div class="exp-body">
+        <h3>Finance Team — Outreach, Sponsorships &amp; Grants</h3>
+        <ul>
+          <li>Presented finance updates at weekly team meetings</li>
+          <li>Researched and wrote grant applications; connected with potential sponsors</li>
+          <li>Collaborated with co-captains to refine UBC Rapid's sponsorship package</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <span class="exp-dates">Jun — Aug 2024</span>
+        <a href="https://invartis.com/" class="exp-org" target="_blank">Invartis Ltd.</a>
+        <span class="exp-type type-work">Work</span>
+      </div>
+      <div class="exp-body">
+        <h3>Business Operations Analyst</h3>
+        <ul>
+          <li>Supported senior consultants across consulting, business development, and HR teams</li>
+          <li>Built a skill-expertise matrix to identify team strengths and guide future recruitment</li>
+          <li>Evaluated three RFP software platforms and recommended the best fit for Invartis</li>
+          <li>Designed a data model in preparation for an asset market analysis</li>
+          <li>Researched asset managers and owners to improve the quality of client pitches</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <span class="exp-dates">Sep — Dec 2023</span>
+        <span class="exp-org">CUBS Vancouver</span>
+        <span class="exp-type type-vol">Volunteer</span>
+      </div>
+      <div class="exp-body">
+        <h3>Math Tutor</h3>
+        <ul>
+          <li>Prepared and taught weekly math lessons to youth in Vancouver's DTES neighbourhood</li>
+          <li>Catered lessons to each student's specific needs and interests</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <span class="exp-dates">Sep 2016 — Jul 2021</span>
+        <span class="exp-org">Royal Canadian Sea Cadet Corps 27</span>
+        <span class="exp-type type-vol">Volunteer</span>
+      </div>
+      <div class="exp-body">
+        <h3>Senior Cadet</h3>
+        <ul>
+          <li>Led groups of junior cadets in training drills; organized parade nights with 70+ cadets</li>
+          <li>Prepared and taught weekly lessons on nautical skills, history, and military topics</li>
+          <li>Organized monthly morale-building events in collaboration with other senior cadets</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-header reveal">
+    <span class="sec-num">02</span>
+    <h2 class="sec-title">Projects</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="proj-grid">
+    <div class="proj-card reveal">
+      <div class="proj-top"><h3>Eye Disease Classification</h3><span class="proj-tag tag-cv">Computer Vision</span></div>
+      <p>Binary classification model trained in PyTorch to correctly identify images of diseased eyes. Explored CNN architectures and transfer learning on a medical imaging dataset.</p>
+      <div class="proj-stack"><span class="stack-pill">Python</span><span class="stack-pill">PyTorch</span><span class="stack-pill">CNN</span></div>
+      <a href="https://github.com/theqquach/eye-disease-classification" class="proj-link" target="_blank">GitHub →</a>
+    </div>
+    <div class="proj-card reveal">
+      <div class="proj-top"><h3>Food Emissions Analysis</h3><span class="proj-tag tag-eda">EDA</span></div>
+      <p>Exploratory data analysis examining the relationship between greenhouse gas emissions, food production, and global consumption patterns.</p>
+      <div class="proj-stack"><span class="stack-pill">Python</span><span class="stack-pill">pandas</span><span class="stack-pill">matplotlib</span></div>
+      <a href="https://github.com/theqquach" class="proj-link" target="_blank">GitHub →</a>
+    </div>
+    <div class="proj-card reveal">
+      <div class="proj-top"><h3>Income Prediction</h3><span class="proj-tag tag-ml">Machine Learning</span></div>
+      <p>Investigated how age, education, and work hours are associated with income. Trained a logistic regression model to predict income brackets — a STAT 301 group project.</p>
+      <div class="proj-stack"><span class="stack-pill">R</span><span class="stack-pill">Logistic Regression</span><span class="stack-pill">tidyverse</span></div>
+      <a href="https://github.com/theqquach/income-prediction-project" class="proj-link" target="_blank">GitHub →</a>
+    </div>
+    <div class="proj-card reveal">
+      <div class="proj-top"><h3>Sleep Efficiency Project</h3><span class="proj-tag tag-stat">Statistics</span></div>
+      <p>Identified factors affecting sleep quality using linear modelling. Applied model diagnostics, variable selection, and interaction terms on a real-world dataset for STAT 306.</p>
+      <div class="proj-stack"><span class="stack-pill">R</span><span class="stack-pill">Linear Models</span><span class="stack-pill">ggplot2</span></div>
+      <a href="https://github.com/theqquach/sleep-efficiency-project" class="proj-link" target="_blank">GitHub →</a>
+    </div>
+    <div class="proj-card reveal">
+      <div class="proj-top"><h3>Credit Card Default Inference</h3><span class="proj-tag tag-stat">Statistics</span></div>
+      <p>Used statistical inference to test whether default payments are more prevalent among those with lower education levels. Hypothesis testing and bootstrapped confidence intervals for STAT 201.</p>
+      <div class="proj-stack"><span class="stack-pill">R</span><span class="stack-pill">Inference</span><span class="stack-pill">Bootstrap</span></div>
+      <a href="https://github.com/theqquach/stat201-project" class="proj-link" target="_blank">GitHub →</a>
+    </div>
+    <div class="proj-card reveal">
+      <div class="proj-top"><h3>Heart Disease Prediction</h3><span class="proj-tag tag-ml">Machine Learning</span></div>
+      <p>Classification model to predict resting ECG results and angiographic disease status. Built and evaluated multiple classifiers on a clinical cardiology dataset for DSCI 100.</p>
+      <div class="proj-stack"><span class="stack-pill">R</span><span class="stack-pill">KNN</span><span class="stack-pill">Classification</span></div>
+      <a href="https://github.com/theqquach/dsci100-project/" class="proj-link" target="_blank">GitHub →</a>
+    </div>
+    <div class="proj-card reveal">
+      <div class="proj-top"><h3>SmartMuse Music Library</h3><span class="proj-tag tag-java">Java</span></div>
+      <p>A music library application built in Java for CPSC 210. Full GUI, persistent data storage, and clean object-oriented architecture. A personal project with open-ended scope.</p>
+      <div class="proj-stack"><span class="stack-pill">Java</span><span class="stack-pill">OOP</span><span class="stack-pill">Swing</span></div>
+      <a href="https://github.com/theqquach/SmartMuseMusicLibraryProject" class="proj-link" target="_blank">GitHub →</a>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="sec-header reveal">
+    <span class="sec-num">03</span>
+    <h2 class="sec-title">Education</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="edu-list">
+    <div class="edu-item reveal">
+      <div>
+        <div class="edu-dates">Sep 2021 — May 2026</div>
+        <div class="edu-inst">University of British Columbia</div>
+      </div>
+      <div class="edu-body">
+        <h3>BSc Combined Major in Statistics &amp; Economics</h3>
+        <p>Minor in Data Science. Coursework spans statistical methods, economic theory, econometrics, machine learning, computer science, and finance — building a strong foundation in quantitative analysis and its application to economic and financial decision-making.</p>
+      </div>
+    </div>
+    <div class="edu-item reveal">
+      <div>
+        <div class="edu-dates">Sep 2021 — Nov 2026</div>
+        <div class="edu-inst">UBC Sauder School of Business</div>
+      </div>
+      <div class="edu-body">
+        <h3>Master's of Management (Concurrent Dual Degree)</h3>
+        <p>Covers business fundamentals in finance, marketing, and operations alongside graduate coursework in project management, business development, and negotiations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-header reveal">
+    <span class="sec-num">04</span>
+    <h2 class="sec-title">Skills</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="skills-wrap">
+    <div class="skill-group reveal">
+      <h4>Programming Languages</h4>
+      <div class="skill-items">
+        <span class="skill-pill hot">Python</span>
+        <span class="skill-pill hot">R</span>
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">Julia</span>
+        <span class="skill-pill">Java</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <h4>Statistical Methods</h4>
+      <div class="skill-items">
+        <span class="skill-pill hot">Econometrics</span>
+        <span class="skill-pill hot">Statistical Inference</span>
+        <span class="skill-pill">Bayesian Methods</span>
+        <span class="skill-pill">Time Series</span>
+        <span class="skill-pill">Regression &amp; GLMs</span>
+        <span class="skill-pill">A/B Testing</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <h4>ML &amp; Data Libraries</h4>
+      <div class="skill-items">
+        <span class="skill-pill hot">scikit-learn</span>
+        <span class="skill-pill">PyTorch</span>
+        <span class="skill-pill">pandas · numpy</span>
+        <span class="skill-pill">tidyverse</span>
+        <span class="skill-pill">ggplot2</span>
+        <span class="skill-pill">Computer Vision</span>
+        <span class="skill-pill">NLP</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <h4>Tools &amp; Domain</h4>
+      <div class="skill-items">
+        <span class="skill-pill hot">Financial Analysis</span>
+        <span class="skill-pill">Excel</span>
+        <span class="skill-pill">RStudio</span>
+        <span class="skill-pill">VS Code</span>
+        <span class="skill-pill">Git · GitHub</span>
+        <span class="skill-pill">LaTeX</span>
+        <span class="skill-pill">Data Visualization</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="sec-header reveal">
+    <span class="sec-num">05</span>
+    <h2 class="sec-title">Awards &amp; Certifications</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="awards-list">
+    <div class="award-item reveal">
+      <div>
+        <div class="award-date">Nov 2024</div>
+        <div class="award-awarder">UBC Land &amp; Food Systems Undergraduate Society</div>
+      </div>
+      <div class="award-body">
+        <h3>Feeding 9 Billion Case Competition — 3rd Place</h3>
+        <p>Placed third proposing a creative solution to food insecurity. My multidisciplinary team of four presented an income-supplementation program to a panel of UBC professors.</p>
+      </div>
+    </div>
+    <div class="award-item reveal">
+      <div>
+        <div class="award-date">Aug 2024</div>
+        <div class="award-awarder">Intuition KHX</div>
+      </div>
+      <div class="award-body">
+        <h3>Asset Management Level 3</h3>
+        <p>Covered Time Value of Money, Technical Analysis, Economic Analysis, Quantitative Trading, and Risk Management in an asset management context.</p>
+      </div>
+    </div>
+    <div class="award-item reveal">
+      <div>
+        <div class="award-date">2025</div>
+        <div class="award-awarder">CFA Institute</div>
+      </div>
+      <div class="award-body">
+        <h3>CFA Level I Candidate</h3>
+        <p>Preparing for the CFA Level I exam, covering ethics, quantitative methods, economics, financial reporting, and portfolio management.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-header reveal">
+    <span class="sec-num">06</span>
+    <h2 class="sec-title">About</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="about-wrap">
+    <div class="about-body reveal">
+      <p>Hi — I'm Alex. I'm a student at the <strong>University of British Columbia</strong> completing a Combined Major in Statistics &amp; Economics alongside a concurrent Master's of Management at Sauder School of Business, graduating in 2026.</p>
+      <p>I'm passionate about using a <strong>data-driven approach</strong> to explore relationships, answer questions, and provide meaningful recommendations. I'm most experienced working with financial data, but I'm always excited to learn about new domains — I believe in lifelong learning.</p>
+      <p>My interests span <strong>financial economics, political economy, environmental economics, and quantitative methods</strong>. I enjoy problems at the intersection of rigorous statistical thinking and real-world impact.</p>
+      <p>Outside academics I've been involved in sea cadets, community math tutoring, and university engineering and finance clubs. Feel free to reach out about projects, opportunities, or anything at the intersection of data and economics.</p>
+      <div class="lang-row">
+        <span class="lang-pill">English — Native</span>
+        <span class="lang-pill">French — Intermediate</span>
+        <span class="lang-pill">Chinese — Basic</span>
+      </div>
+    </div>
+    <div>
+      <div class="contact-card reveal">
+        <h3>Get in touch</h3>
+        <div class="contact-links">
+          <a href="mailto:theqquach@gmail.com" class="c-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+            theqquach@gmail.com
+          </a>
+          <a href="https://github.com/theqquach" class="c-link" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            github.com/theqquach
+          </a>
+          <a href="https://www.linkedin.com/in/thequach/" class="c-link" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            linkedin.com/in/thequach
+          </a>
+        </div>
+      </div>
+      <div class="cv-card reveal">
+        <p>Full CV with coursework, references, and detailed experience.</p>
+        <a href="/uploads/resume.pdf" class="btn btn-secondary" style="width:100%;justify-content:center;">Download CV ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Alexander (Thê) Quach</span>
+  <span>BSc Statistics &amp; Economics · UBC</span>
+  <a href="https://github.com/theqquach/theqquach.github.io" target="_blank">Source on GitHub →</a>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.transitionDelay = `${(i % 4) * 0.07}s`;
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => obs.observe(el));
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a:not(.uses-link)');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+    navLinks.forEach(a => { a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--accent2)' : ''; });
+  });
+</script>
+</body>
+</html>
