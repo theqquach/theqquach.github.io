@@ -4,10 +4,26 @@
 # type: "work" → purple badge  |  type: "vol" → grey badge
 # ─────────────────────────────────────────────────────────
 
+- title: Civillian Instructor
+  org: Department of National Defence
+  dates: Aug 2025 — Present
+  type: work
+  bullets:
+    - 
+
+- title: Investor Relations Assistant
+  org: AMS Dance Horizons
+  url: https://www.ubcdancehorizons.com/
+  dates: May 2025 — Apr 2026
+  type: vol
+  bullets:
+    - Created budget for club operations
+    - Processed various club financial transactions
+
 - title: Investor Relations Assistant
   org: Solaires Entreprises Inc.
   url: https://www.solaires.net/
-  dates: Sep 2024 — Present
+  dates: Sep 2024 — Apr 2025
   type: work
   bullets:
     - Supported fundraising by researching and generating documentation prior to investor meetings
@@ -15,10 +31,10 @@
     - Built connections within the climate venture capital and sustainable energy community
     - Created pitch deck presentations and managed company documents for the Data Room
 
-- title: "Finance Team — Outreach, Sponsorships & Grants"
+- title: "Sponsorships and Grants Lead"
   org: UBC Rapid Engineering Design Team
   url: https://ubc-rapid.com/#/
-  dates: Sep 2024 — Present
+  dates: Sep 2024 — Apr 2026
   type: vol
   bullets:
     - Presented finance updates at weekly team meetings
@@ -46,7 +62,7 @@
     - Catered lessons to each student's specific needs and interests
 
 - title: Senior Cadet
-  org: Royal Canadian Sea Cadet Corps 27
+  org: Royal Canadian Sea Cadet Corps 27 Warrior
   dates: Sep 2016 — Jul 2021
   type: vol
   bullets:

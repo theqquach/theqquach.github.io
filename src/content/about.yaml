@@ -6,7 +6,7 @@
 
 name: "Alexander (Thê) Quach"
 shortName: "Alex"
-role: "Financial Data Analyst · UBC · Sauder"
+role: "Student · UBC"
 email: "theqquach@gmail.com"
 github: "https://github.com/theqquach"
 linkedin: "https://www.linkedin.com/in/thequach/"
@@ -15,8 +15,7 @@ cvPath: "/uploads/resume.pdf"
 heroLabel: "Statistics · Economics · Data Science"
 
 heroSubtitle: >
-  BSc Combined Major in Statistics & Economics with a concurrent Master's
-  of Management at Sauder. I use a data-driven approach to explore
+  BSc Combined Major in Statistics & Economics with a minor in Data Science. I use a data-driven approach to explore
   relationships, answer questions, and provide meaningful recommendations.
 
 interests:
@@ -34,14 +33,11 @@ heroStats:
     label: "Work roles"
   - number: "7"
     label: "Projects"
-  - number: "CFA"
-    label: "L1 Candidate"
 
 bio:
   - >
     Hi — I'm Alex. I'm a student at the University of British Columbia
-    completing a Combined Major in Statistics & Economics alongside a
-    concurrent Master's of Management at Sauder School of Business,
+    completing a Combined Major in Statistics & Economics
     graduating in 2026.
   - >
     I'm passionate about using a data-driven approach to explore
@@ -53,8 +49,7 @@ bio:
     economics, and quantitative methods. I enjoy problems at the intersection
     of rigorous statistical thinking and real-world impact.
   - >
-    Outside academics I've been involved in sea cadets, community math
-    tutoring, and university engineering and finance clubs. Feel free to reach
+    Outside academics I'm involved in the Royal Canadian Sea Cadets program, math, statistics and economics tutoring, and various clubs. Feel free to reach
     out about projects, opportunities, or anything at the intersection of
     data and economics.
 

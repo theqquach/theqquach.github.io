@@ -4,6 +4,22 @@
 #              "Statistics" | "Java" | "Economics"
 # ─────────────────────────────────────────────────────────────────────
 
+- title: Audio Emotional Intelligence Classfication
+  tag: Machine Learning
+  description: >
+    In-progress
+  stack: [Python, PyTorch, CNN]
+
+- title: Universal Basic Income Analysis
+  tag: Economics
+  description: >
+    In-progress
+  
+- title: Universal Basic Income Analysis
+  tag: Economics
+  description: >
+    In-progress
+
 - title: Eye Disease Classification
   tag: Computer Vision
   description: >
