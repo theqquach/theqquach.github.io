@@ -1,10 +1,10 @@
 ---
 import { parse } from 'yaml';
 import usesRaw from '../../data/uses.yaml?raw';
-const uses = parse(usesRaw);
+const usesData = parse(usesRaw);
 
 const contentDir = path.join(path.dirname(fileURLToPath(import.meta.url)), '../content');
-const uses = parse(readFileSync(path.join(contentDir, 'uses.yaml'), 'utf8')) as any[];
+const usesData = parse(readFileSync(path.join(contentDir, 'uses.yaml'), 'utf8')) as any[];
 
 const badgeStyle: Record<string, string> = {
   'favourite':   'background:var(--accent2);color:#fff;',
