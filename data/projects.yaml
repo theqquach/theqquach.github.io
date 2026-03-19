@@ -14,11 +14,13 @@
   tag: Economics
   description: >
     In-progress
+  stack: [R]
   
-- title: Universal Basic Income Analysis
+- title: Causal Analysis of Canada's Carbon Tax
   tag: Economics
   description: >
     In-progress
+  stack: [R]
 
 - title: Eye Disease Classification
   tag: Computer Vision
