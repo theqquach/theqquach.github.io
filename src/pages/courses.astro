@@ -1,9 +1,7 @@
 ---
-import Base from '../layouts/Base.astro';
 import { parse } from 'yaml';
-import { readFileSync } from 'fs';
-import { fileURLToPath } from 'url';
-import path from 'path';
+import coursesRaw from '../../data/courses.yaml?raw';
+const categories = parse(coursesRaw);
 
 const contentDir = path.join(path.dirname(fileURLToPath(import.meta.url)), '../content');
 const categories = parse(readFileSync(path.join(contentDir, 'courses.yaml'), 'utf8')) as any[];
