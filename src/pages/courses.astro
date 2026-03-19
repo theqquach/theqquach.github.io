@@ -1,16 +1,15 @@
 ---
+import Base from '../layouts/Base.astro';
 import { parse } from 'yaml';
 import coursesRaw from '../../data/courses.yaml?raw';
-const categories = parse(coursesRaw);
 
-const contentDir = path.join(path.dirname(fileURLToPath(import.meta.url)), '../content');
-const categories = parse(readFileSync(path.join(contentDir, 'courses.yaml'), 'utf8')) as any[];
+const categories = parse(coursesRaw) as any[];
 
 const categoryColors: Record<string, { bg: string; text: string; border: string }> = {
-  Economics:       { bg: '#3b1f6e', text: '#fff',     border: '#3b1f6e' },
-  Statistics:      { bg: '#7c3aed', text: '#fff',     border: '#7c3aed' },
-  'Computer Science': { bg: '#0891b2', text: '#fff',  border: '#0891b2' },
-  Other:           { bg: 'var(--paper3)', text: 'var(--ink3)', border: 'var(--paper3)' },
+  Economics:          { bg: '#3b1f6e', text: '#fff',           border: '#3b1f6e' },
+  Statistics:         { bg: '#7c3aed', text: '#fff',           border: '#7c3aed' },
+  'Computer Science': { bg: '#0891b2', text: '#fff',           border: '#0891b2' },
+  Other:              { bg: 'var(--paper3)', text: 'var(--ink3)', border: 'var(--paper3)' },
 };
 ---
 
@@ -18,7 +17,6 @@ const categoryColors: Record<string, { bg: string; text: string; border: string 
 
 <div style="max-width:860px;margin:0 auto;padding:7rem 2.5rem 6rem;">
 
-  <!-- HEADER -->
   <header class="reveal" style="margin-bottom:4rem;padding-bottom:2.5rem;border-bottom:1.5px solid var(--paper3);">
     <p style="font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);margin-bottom:1rem;">UBC Undergrad</p>
     <h1 style="font-family:var(--serif);font-size:clamp(2.8rem,6vw,4.5rem);font-weight:400;line-height:1.05;color:var(--accent);margin-bottom:1.25rem;">
@@ -27,15 +25,13 @@ const categoryColors: Record<string, { bg: string; text: string; border: string 
     <p style="font-size:1rem;color:var(--ink2);max-width:56ch;line-height:1.75;">
       I've taken a lot of classes over my time at UBC. Here are some of my favourites, or ones I found the most interesting — with honest reviews and what you can expect from each one.
     </p>
-
-    <!-- JUMP LINKS -->
     <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.75rem;">
       {categories.map((cat: any) => {
         const c = categoryColors[cat.category] ?? categoryColors['Other'];
         return (
           <a
             href={`#${cat.category.toLowerCase().replace(' ', '-')}`}
-            style={`font-family:var(--mono);font-size:11px;letter-spacing:.07em;padding:.3rem .85rem;border-radius:2px;text-decoration:none;transition:all .18s;background:${c.bg};color:${c.text};border:1px solid ${c.border};`}
+            style={`font-family:var(--mono);font-size:11px;letter-spacing:.07em;padding:.3rem .85rem;border-radius:2px;text-decoration:none;background:${c.bg};color:${c.text};border:1px solid ${c.border};`}
           >
             {cat.category} ({cat.courses.length})
           </a>
@@ -44,16 +40,14 @@ const categoryColors: Record<string, { bg: string; text: string; border: string 
     </div>
   </header>
 
-  <!-- CATEGORIES -->
-  {categories.map((cat: any, ci: number) => {
+  {categories.map((cat: any) => {
     const c = categoryColors[cat.category] ?? categoryColors['Other'];
     return (
       <div
         id={cat.category.toLowerCase().replace(' ', '-')}
         class="reveal"
-        style={`margin-bottom:4rem;scroll-margin-top:80px;`}
+        style="margin-bottom:4rem;scroll-margin-top:80px;"
       >
-        <!-- Category heading -->
         <div style="display:flex;align-items:center;gap:1rem;margin-bottom:2rem;">
           <div style={`width:10px;height:10px;border-radius:50%;background:${c.bg};flex-shrink:0;`}></div>
           <h2 style="font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;color:var(--accent);">{cat.category}</h2>
@@ -61,14 +55,12 @@ const categoryColors: Record<string, { bg: string; text: string; border: string 
           <span style="font-family:var(--mono);font-size:11px;color:var(--ink3);letter-spacing:.08em;">{cat.courses.length} courses</span>
         </div>
 
-        <!-- Course cards -->
         <div style="display:flex;flex-direction:column;gap:1px;border:1.5px solid var(--paper3);border-radius:4px;overflow:hidden;">
           {cat.courses.map((course: any, i: number) => (
             <div
               class="course-card"
               style={`background:var(--paper);padding:1.75rem 2rem;${i < cat.courses.length - 1 ? 'border-bottom:1px solid var(--paper3);' : ''}${course.highlight ? `border-left:3px solid ${c.bg};` : ''}`}
             >
-              <!-- Course header -->
               <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.9rem;flex-wrap:wrap;">
                 <div>
                   <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.3rem;">
@@ -85,14 +77,11 @@ const categoryColors: Record<string, { bg: string; text: string; border: string 
                 </div>
               </div>
 
-              <!-- Review -->
               <p style="font-size:.925rem;color:var(--ink2);line-height:1.8;margin-bottom:1.25rem;max-width:68ch;">
                 {course.review}
               </p>
 
-              <!-- Topics + Project link row -->
               <div style="display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:start;">
-                <!-- Topics -->
                 <div>
                   <p style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.55rem;">Topics covered</p>
                   <div style="display:flex;flex-wrap:wrap;gap:.35rem;">
@@ -103,34 +92,19 @@ const categoryColors: Record<string, { bg: string; text: string; border: string 
                     ))}
                   </div>
                 </div>
-
-                <!-- Links -->
                 <div style="display:flex;flex-direction:column;gap:.4rem;flex-shrink:0;">
                   {course.project && (
-                    <a
-                      href={course.project.url}
-                      target="_blank"
-                      style="font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--accent2);white-space:nowrap;border-bottom:1px solid transparent;transition:border-color .18s;"
-                      onmouseenter="this.style.borderColor='var(--accent2)'"
-                      onmouseleave="this.style.borderColor='transparent'"
-                    >
+                    <a href={course.project.url} target="_blank" style="font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--accent2);white-space:nowrap;border-bottom:1px solid transparent;">
                       My project →
                     </a>
                   )}
                   {course.links && course.links.map((l: any) => (
-                    <a
-                      href={l.url}
-                      target="_blank"
-                      style="font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--ink3);white-space:nowrap;border-bottom:1px solid transparent;transition:all .18s;"
-                      onmouseenter="this.style.color='var(--accent2)';this.style.borderColor='var(--accent2)'"
-                      onmouseleave="this.style.color='var(--ink3)';this.style.borderColor='transparent'"
-                    >
+                    <a href={l.url} target="_blank" style="font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--ink3);white-space:nowrap;border-bottom:1px solid transparent;">
                       {l.label} →
                     </a>
                   ))}
                 </div>
               </div>
-
             </div>
           ))}
         </div>
@@ -145,10 +119,7 @@ const categoryColors: Record<string, { bg: string; text: string; border: string 
 <style>
   .course-card { transition: background .18s; }
   .course-card:hover { background: #fff !important; }
-
   @media (max-width: 700px) {
-    div[style*="grid-template-columns:1fr auto"] {
-      grid-template-columns: 1fr !important;
-    }
+    div[style*="grid-template-columns:1fr auto"] { grid-template-columns: 1fr !important; }
   }
 </style>

@@ -1,19 +1,19 @@
 ---
 import Base from '../layouts/Base.astro';
 import { parse } from 'yaml';
-import { readFileSync } from 'fs';
-import { fileURLToPath } from 'url';
-import path from 'path';
+import aboutRaw     from '../../data/about.yaml?raw';
+import experienceRaw from '../../data/experience.yaml?raw';
+import projectsRaw  from '../../data/projects.yaml?raw';
+import educationRaw from '../../data/education.yaml?raw';
+import skillsRaw    from '../../data/skills.yaml?raw';
+import awardsRaw    from '../../data/awards.yaml?raw';
 
-const contentDir = path.join(path.dirname(fileURLToPath(import.meta.url)), '../content');
-const load = (file: string) => parse(readFileSync(path.join(contentDir, file), 'utf8'));
-
-const about     = load('about.yaml') as any;
-const experience = load('experience.yaml') as any[];
-const projects  = load('projects.yaml') as any[];
-const education = load('education.yaml') as any[];
-const skills    = load('skills.yaml') as any[];
-const awards    = load('awards.yaml') as any[];
+const about      = parse(aboutRaw) as any;
+const experience = parse(experienceRaw) as any[];
+const projects   = parse(projectsRaw) as any[];
+const education  = parse(educationRaw) as any[];
+const skills     = parse(skillsRaw) as any[];
+const awards     = parse(awardsRaw) as any[];
 
 const tagColors: Record<string, string> = {
   'Computer Vision': '#3b1f6e',
