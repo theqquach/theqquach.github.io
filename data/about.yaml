@@ -3,8 +3,8 @@
 # hero, bio, contact, and languages sections
 # ─────────────────────────────────────────
 
-name: "Alexander (Thê) Quach"
-shortName: "Alex"
+name: "Thê (Alexander) Quach"
+shortName: "Thê"
 role: "Student · UBC"
 email: "theqquach@gmail.com"
 github: "https://github.com/theqquach"
@@ -30,12 +30,12 @@ heroStats:
     label: "Degrees"
   - number: "4+"
     label: "Work roles"
-  - number: "7"
+  - number: "9"
     label: "Projects"
 
 bio:
   - >
-    Hi — I'm Alex. I'm a student at the University of British Columbia
+    Hi — I'm Thê. I'm a student at the University of British Columbia
     completing a Combined Major in Statistics & Economics
     graduating in 2026.
   - >
