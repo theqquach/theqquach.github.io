@@ -15,7 +15,7 @@ heroLabel: "Statistics · Economics · Data Science"
 
 heroSubtitle: >
   BSc Combined Major in Statistics & Economics with a minor in Data Science. I use a data-driven approach to explore
-  relationships, answer questions, and provide meaningful recommendations.
+  relationships, answer questions, and provide meaningful recommendations. 
 
 interests:
   - Financial Economics
@@ -27,11 +27,13 @@ interests:
 
 heroStats:
   - number: "2"
-    label: "Degrees"
-  - number: "4+"
-    label: "Work roles"
-  - number: "9"
-    label: "Projects"
+    label: "Specialized Disciplines"
+  - number: "5+"
+    label: "Professional roles"
+  - number: "10+"
+    label: "Technical Projects & Case Studies"
+  - number: “100+”
+    label: “Youth Mentored & Trained”
 
 bio:
   - >
@@ -46,9 +48,10 @@ bio:
   - >
     My interests span financial economics, political economy, environmental
     economics, and quantitative methods. I enjoy problems at the intersection
-    of rigorous statistical thinking and real-world impact.
+    of rigorous statistical thinking and real-world impact. I love analyzing social issues and 
+    politics from a cultural lens.
   - >
-    Outside academics I'm involved in the Royal Canadian Sea Cadets program, math, statistics and economics tutoring, and various clubs. Feel free to reach
+    Outside academics I'm involved in the Royal Canadian Sea Cadet program, math, statistics and economics tutoring, and various clubs. Feel free to reach
     out about projects, opportunities, or anything at the intersection of
     data and economics.
 

@@ -4,22 +4,22 @@
 #              "Statistics" | "Java" | "Economics"
 # ─────────────────────────────────────────────────────────────────────
 
-- title: Audio Emotional Intelligence Classfication
+- title: Audio Emotional Intelligence Classification
   tag: Machine Learning
   description: >
-    In-progress
+    A linguistics project aiming to see how accurately machine learning can identify emotions from utterances for bilingual people (Mandarin and English).
   stack: [Python, PyTorch, CNN]
 
 - title: Universal Basic Income Analysis
   tag: Economics
   description: >
-    In-progress
+    Capstone research project for ECON 490. Analyzing the effect of race/culture on working hours for participants on universal basic income using the data from the Mincome experiment.
   stack: [R]
   
 - title: Causal Analysis of Canada's Carbon Tax
   tag: Economics
   description: >
-    In-progress
+    Using causal inference techniques, analyzing the effect of the Canadian carbon tax on the price of food data across provinces. The project focuses on isolating the effect of the carbon tax from other variables, such as inflation or shifting energy prices.
   stack: [R]
 
 - title: Eye Disease Classification
@@ -83,3 +83,4 @@
     A personal project with open-ended scope.
   stack: [Java, OOP, Swing]
   url: https://github.com/theqquach/SmartMuseMusicLibraryProject
+

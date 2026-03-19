@@ -16,6 +16,7 @@ const currentPath = Astro.url.pathname;
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <title>{title}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,12 +25,13 @@ const currentPath = Astro.url.pathname;
 <body>
 
 <nav>
-  <a class="nav-logo" href="/">theqquach.github.io</a>
+  <a class="nav-logo" href="/">thequach.ca</a>
   <ul class="nav-links">
     <li><a href="/#experience">Experience</a></li>
     <li><a href="/#projects">Projects</a></li>
     <li><a href="/#skills">Skills</a></li>
     <li><a href="/#about">About</a></li>
+    <li><a href="/courses" class:list={[{ active: currentPath === '/courses' }]}>/courses</a></li>
     <li><a href="/uses" class:list={["uses-link", { active: currentPath === '/uses' }]}>/uses</a></li>
   </ul>
 </nav>
@@ -37,7 +39,7 @@ const currentPath = Astro.url.pathname;
 <slot />
 
 <footer>
-  <span>© 2025 Alexander (Thê) Quach</span>
+  <span>© 2026 Alexander (Thê) Quach</span>
   <span>BSc Statistics &amp; Economics · UBC</span>
   <a href="https://github.com/theqquach/theqquach.github.io" target="_blank">Source on GitHub →</a>
 </footer>

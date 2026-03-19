@@ -93,6 +93,7 @@
       description: >
     - title: Notion + Notion Calendar
       sub: Notes & projects
+      badge: favourite
       description: >
     - title: Things 3
       sub: Task manager
@@ -104,3 +105,4 @@
     - title: Apple Music
       sub: Music
       description: >
+
