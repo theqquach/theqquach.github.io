@@ -28,7 +28,7 @@ const currentPath = Astro.url.pathname;
   <a class="nav-logo" href="/">thequach.ca</a>
   <ul class="nav-links">
     <li><a href="/#experience">Experience</a></li>
-    <li><a href="/#projects">Projects</a></li>
+    <li><a href="/projects"class:list={[{ active: currentPath === '/projects' }]}>Projects</a></li>
     <li><a href="/#skills">Skills</a></li>
     <li><a href="/#about">About</a></li>
     <li><a href="/courses" class:list={[{ active: currentPath === '/courses' }]}>Courses</a></li>

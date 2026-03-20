@@ -129,9 +129,10 @@ const tagColors: Record<string, string> = {
 <!-- ── PROJECTS ── -->
 <section id="projects" style="padding:5rem;">
   <div class="sec-header reveal">
-    <span class="sec-num">02</span>
-    <h2 class="sec-title">Projects</h2>
-    <div class="sec-rule"></div>
+  <span class="sec-num">02</span>
+  <h2 class="sec-title">Project Summaries</h2>
+  <div class="sec-rule"></div>
+  <a href="/projects" style="font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--accent2);white-space:nowrap;border-bottom:1px solid transparent;transition:border-color .18s;" onmouseenter="this.style.borderColor='var(--accent2)'" onmouseleave="this.style.borderColor='transparent'">View all →</a>
   </div>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;border:1.5px solid var(--paper3);">
     {projects.map((p: any) => (
