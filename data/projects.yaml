@@ -1,8 +1,3 @@
-# ─────────────────────────────────────────────────────────────────────
-# PROJECTS — add a new block to add a project.
-# tag options: "Computer Vision" | "EDA" | "Machine Learning" |
-#              "Statistics" | "Java" | "Economics"
-# ─────────────────────────────────────────────────────────────────────
 
 - title: Audio Emotional Intelligence Classification
   tag: Machine Learning

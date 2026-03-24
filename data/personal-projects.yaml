@@ -1,22 +1,12 @@
-# ─────────────────────────────────────────────────────────────────────
-# PERSONAL PROJECTS — these are your standalone research/analysis
-# projects with full HTML reports hosted under /projects/
-#
-# status options: "complete" | "in progress" | "working paper"
-# Fields:
-#   slug     → must match the folder name under public/projects/
-#              e.g. slug: ubi-analysis → /projects/ubi-analysis/
-#   report   → set to true if there's an index.html report to link to
-# ─────────────────────────────────────────────────────────────────────
 
 - title: Culture, Race and Universal Basic Income
   slug: ubi-analysis
-  date: "2025"
+  date: "2026"
   status: in progress
   report: true
   tags: [Economics, Policy, R]
   description: >
-    An analysis of Universal Basic Income — examining the empirical
+    An analysis of Universal Basic Income: examining the empirical
     evidence, policy tradeoffs, and distributional effects using
     publicly available Mincome data.
   methods:

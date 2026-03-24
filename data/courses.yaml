@@ -1,9 +1,3 @@
-# ─────────────────────────────────────────────────────────────────────
-# COURSES — your favourite/most interesting undergrad courses.
-# Add a new block to add a course. Remove a block to remove one.
-# "project" is optional — include a url and label if the course had one.
-# ─────────────────────────────────────────────────────────────────────
-
 - category: Economics
 
   courses:
@@ -11,11 +5,11 @@
       title: Computational Methods in Macroeconomics
       highlight: true
       review: >
-        Definitely one of my favourite classes I've taken — a real culmination
+        Definitely one of my favourite classes I've taken. A real culmination
         of so many others. It integrated macroeconomic theory, statistics,
         linear algebra, and computer science in an elegant and insightful way.
         The professor, Jesse Perla, is amazing. If you can go to his office
-        hours, do it — he deeply cares about his students' learning. His course
+        hours, do it. He deeply cares about his students' learning. His course
         materials are also on GitHub for past versions of the course.
       topics:
         - Asset pricing
@@ -36,7 +30,7 @@
         research or academia. The problem sets were difficult and grading
         was sometimes ambiguous, but the content is unique and valuable.
         Econometrics applies concepts from math and statistics to specific
-        empirical questions — there's overlap with STAT 305, but the
+        empirical questions. There's some overlap with STAT 305, but the
         causal inference topics are unique to this course.
       topics:
         - Endogeneity and IV in models
@@ -48,7 +42,7 @@
       title: Cost-Benefit Analysis
       review: >
         I wish I had taken this earlier than my 3rd year. It covers a lot of
-        foundational concepts in economics and finance — discounting, net
+        foundational concepts in economics and finance: discounting, net
         present value, and time value of money. Professor Clive Chapple taught
         it in a challenging but very well-structured way, making it easy to
         follow. Particularly useful for anyone interested in the public sector.
@@ -61,7 +55,7 @@
     - code: ECON 345
       title: Money and Banking
       review: >
-        I took this with Geoffrey Newman — a fun prof who structures class
+        I took this with Geoffrey Newman, a fun prof who structures class
         the way you'd imagine a university lecture to be. He hands out notes
         and lectures from them. The course was exam-heavy with few assignments.
         Since he's been lecturing for so long, he teaches some of his own
@@ -79,7 +73,7 @@
     - code: STAT 306
       title: Finding Relationships in Data
       review: >
-        A good course overall — I took it over the summer so it may have been
+        A good course overall. I took it over the summer so it may have been
         a lighter workload than the winter term. Goes into more detail on linear
         models and regression with actual mathematical derivations. The course
         project was a bit limited (you pick from a few provided datasets), but
@@ -96,7 +90,7 @@
     - code: STAT 305
       title: Introduction to Statistical Inference
       review: >
-        A core course for statistics majors and very concept-heavy — similar
+        A core course for statistics majors and very concept-heavy, similar
         in feel to a math class. With practice and an understanding of the
         theory behind the methods, it's manageable. I took it during the
         summer and would recommend doing so if you can.
@@ -111,7 +105,7 @@
         The final course in the data science stream of statistics courses.
         Focuses on applying regression models to data science projects. The
         group project had an assigned dataset and team, which was a bit
-        different from other courses — good practice for real collaborative
+        different from other courses, good practice for real collaborative
         work.
       topics:
         - A/B testing
@@ -125,7 +119,7 @@
     - code: STAT 300
       title: Intermediate Statistics for Applications
       review: >
-        A good course for non-statistics majors — it covers a broad range of
+        A good course for non-statistics majors. The course covers a broad range of
         topics without going too deep into any of them. I thoroughly enjoyed
         taking it with Prof. Ben Burr. If you want a solid survey of applied
         statistics methods, this is it.
@@ -161,7 +155,7 @@
       title: Software Construction
       review: >
         Great because of the open-ended personal project that runs the whole
-        term. You really get out of it what you put in — the TAs are there to
+        term. You really get out of it what you put in, with TAs there to
         advise and help. The structure mirrors a real personal project, which
         makes it a good gateway into independent software work. I found it
         challenging at the time due to limited programming experience, but it
@@ -180,7 +174,7 @@
       review: >
         Covered a wide range of ML topics with relatively accessible concepts
         and practical applications. The course doesn't have you build models
-        from scratch, but shows you how to implement and use them effectively —
+        from scratch, but shows you how to implement and use them effectively;
         a great applied survey of the field.
       topics:
         - Supervised models (k-NN, SVM, linear models, ensembles)
@@ -195,7 +189,7 @@
       title: Approaches to Literature and Culture
       review: >
         I went in fearing college-level literary analysis but was pleasantly
-        surprised — I thoroughly enjoyed it. Professor Miranda Burgess is
+        surprised and I thoroughly enjoyed it. Professor Miranda Burgess is
         wonderful; I'd recommend taking any class she teaches. My TA, Thea
         Skeide, was also very supportive throughout. The reading list was
         genuinely great.
@@ -209,7 +203,7 @@
       title: Introduction to Data Science
       review: >
         A solid introductory course. I took it over the summer which let me
-        focus more on each topic. The format is great — solely worksheets and
+        focus more on each topic. The format is great, solely worksheets and
         tutorials run on Syzygy, UBC's online Jupyter server, so you can learn
         at your own pace. There's a group project throughout the term.
       topics:

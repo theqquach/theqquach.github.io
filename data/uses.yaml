@@ -1,10 +1,5 @@
-# ─────────────────────────────────────────────────────────────────────
-# USES PAGE — edit your setup here, it renders automatically
-# badge options: "favourite" | "free" | "open source"  (or leave blank)
-# ─────────────────────────────────────────────────────────────────────
 
 - section: Hardware
-  icon: "💻"
   specCards:
     - label: Primary laptop
       name: MacBook Air 13-inch (M2, 2022)
@@ -17,7 +12,7 @@
       name: Custom Windows Build
       specs:
         CPU: AMD Ryzen 5 3600X
-        GPU: ASUS GTX 1050 Ti 4GB
+        GPU: ASUS Prime GeForce RTX 5060 Ti 16GB
         Mobo: ASRock B450M-HDV R4.0
         Socket: AM4
   items:
@@ -52,7 +47,6 @@
       description: >
 
 - section: Editor & Development
-  icon: "⌨️"
   items:
     - title: RStudio
       sub: R IDE
@@ -67,7 +61,6 @@
       description: >
 
 - section: Languages & Data Stack
-  icon: "📊"
   items:
   - title: R
     sub: Language
@@ -85,7 +78,6 @@
     description: >
 
 - section: Browser & Productivity
-  icon: "🌐"
   items:
     - title: Arc
       sub: Primary browser
