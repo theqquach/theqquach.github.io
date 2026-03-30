@@ -17,7 +17,7 @@
 - title: Eye Disease Classification Image Recognition Model
   slug: eye-classifier
   date: "2024"
-  status: completed
+  status: 'completed'
   report: true
   tags: [Machine Learning, Computer Vision, Python, Pytorch]
   description: >
