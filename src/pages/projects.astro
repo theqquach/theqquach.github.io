@@ -13,12 +13,15 @@ const statusStyle: Record<string, string> = {
 
 const tagColor = (tag: string) => {
   const map: Record<string, string> = {
-    Economics:  '#3b1f6e',
-    Statistics: '#7c3aed',
-    Python:     '#0891b2',
-    R:          '#2563eb',
-    Policy:     '#047857',
-    Finance:    '#b45309',
+    Economics:        '#3b1f6e',
+    Statistics:       '#7c3aed',
+    Python:           '#0891b2',
+    R:                '#2563eb',
+    Policy:           '#047857',
+    Finance:          '#b45309',
+    Machine Learning: '#fa28fa',
+    Computer Vision:  '#001494',
+    Pytorch:          '#ff8614',
   };
   return map[tag] ?? '#6b7280';
 };

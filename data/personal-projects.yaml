@@ -19,7 +19,7 @@
   date: "2024"
   status: completed
   report: true
-  tags: [Machine Learning, Computer, Vision, Python, Pytorch]
+  tags: [Machine Learning, Computer Vision, Python, Pytorch]
   description: >
     Retinal images can reveal serious eye conditions, but access to
     specialist diagnosis is limited globally. This project fine-tunes a
