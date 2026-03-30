@@ -13,3 +13,24 @@
     - Causal analysis
     - Policy evaluation
     - Data visualization
+
+- title: Eye Disease Classification Image Recognition Model
+  slug: eye-classifier
+  date: "2024"
+  status: completed
+  report: true
+  tags: [Machine Learning, Computer, Vision, Python, Pytorch]
+  description: >
+    Retinal images can reveal serious eye conditions, but access to
+    specialist diagnosis is limited globally. This project fine-tunes a
+    convolutional neural network to classify photographs into four 
+    categories: cataract, diabetic retinopathy, glaucoma, and normal. 
+    Trained on Apple MPS and NVIDIA CUDA hardware using
+    PyTorch, the model achieves 90.7% validation accuracy across all four
+    classes, with an F1 of 0.957 for diabetic retinopathy and 0.867 for
+    glaucoma (the hardest class due to its visual similarity to healthy retinas).
+  methods:
+    - Transfer learning (ResNet-50)
+    - Image classification
+    - Data augmentation
+    - Model evaluation (F1, confusion matrix)
