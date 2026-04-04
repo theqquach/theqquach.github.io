@@ -4,6 +4,7 @@
   date: "2026"
   status: in progress
   report: true
+  pdf: /projects/ubi-analysis/report.pdf
   tags: [Economics, Policy, R]
   description: >
     An analysis of Universal Basic Income: examining the empirical
@@ -14,21 +15,35 @@
     - Policy evaluation
     - Data visualization
 
+- title: Did the Canadian Carbon Tax cause Inflation?
+  slug: carbon-tax-inflation
+  date: "2026"
+  status: in progress
+  report: true
+  tags: [Economics, Policy, R]
+  description: >
+    A common
+    criticism of the Canadian carbon tax was that it acted as a "tax on
+    everything", since carbon is embedded throughout the supply chain, the
+    tax was expected to raise prices broadly. This project estimates the
+    causal effect of the carbon tax on food prices in Canada.
+  methods:
+    - Causal analysis
+    - Policy evaluation
+    - Data visualization
+
 - title: Eye Disease Classification Image Recognition Model
   slug: eye-classifier
   date: "2024"
   status: 'complete'
   report: true
+  pdf: /projects/eye-classifier/report.pdf
   tags: [Machine Learning, Computer Vision, Python, PyTorch]
   description: >
     Retinal images can reveal serious eye conditions, but access to
     specialist diagnosis is limited globally. This project fine-tunes a
-    convolutional neural network to classify photographs into four 
-    categories: cataract, diabetic retinopathy, glaucoma, and normal. 
-    Trained on Apple MPS and NVIDIA CUDA hardware using
-    PyTorch, the model achieves 90.7% validation accuracy across all four
-    classes, with an F1 of 0.957 for diabetic retinopathy and 0.867 for
-    glaucoma (the hardest class due to its visual similarity to healthy retinas).
+    convolutional neural network to classify photographs into four
+    categories: cataract, diabetic retinopathy, glaucoma, and normal.
   methods:
     - Transfer learning (ResNet-50)
     - Image classification

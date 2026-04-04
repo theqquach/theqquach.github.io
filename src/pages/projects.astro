@@ -85,7 +85,7 @@ const tagColor = (tag: string) => {
           )}
 
           <!-- Links -->
-          <div style="display:flex;gap:1rem;align-items:center;margin-top:auto;padding-top:1rem;border-top:1px solid var(--paper3);">
+          <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-top:auto;padding-top:1rem;border-top:1px solid var(--paper3);">
             {p.report && (
               <a
                 href={`/projects/${p.slug}/`}
@@ -94,6 +94,17 @@ const tagColor = (tag: string) => {
                 onmouseleave="this.style.background='var(--accent2)'"
               >
                 Read report →
+              </a>
+            )}
+            {p.pdf && (
+              <a
+                href={p.pdf}
+                download
+                style="display:inline-flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;background:var(--paper2);color:var(--ink2);padding:.5rem 1rem;border-radius:2px;border:1px solid var(--paper3);transition:all .18s;"
+                onmouseenter="this.style.background='var(--paper3)';this.style.color='var(--ink)'"
+                onmouseleave="this.style.background='var(--paper2)';this.style.color='var(--ink2)'"
+              >
+                ↓ PDF
               </a>
             )}
             {p.github && (
