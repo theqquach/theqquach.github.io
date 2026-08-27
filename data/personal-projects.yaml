@@ -2,7 +2,7 @@
 - title: Culture, Race and Universal Basic Income
   slug: ubi-analysis
   date: "2026"
-  status: in progress
+  status: 'complete'
   report: true
   pdf: /projects/ubi-analysis/report.pdf
   tags: [Economics, Policy, R]
@@ -18,7 +18,7 @@
 - title: Did the Canadian Carbon Tax cause Inflation?
   slug: carbon-tax-inflation
   date: "2026"
-  status: in progress
+  status: 'complete'
   report: true
   tags: [Economics, Policy, R]
   description: >
